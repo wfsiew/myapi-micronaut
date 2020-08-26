@@ -1,0 +1,28 @@
+micronaut:
+  application:
+    name: myapi
+  server:
+   port: 8080
+  security:
+    authentication: bearer
+    enabled: true
+    endpoints:
+      login:
+        enabled: true
+      logout:
+        enabled: true
+      oauth:
+        enabled: true
+    token:
+      jwt:
+        enabled: true
+        signatures:
+          secret:
+            generator:
+              secret: pleaseChangeThisSecretForANewOne-myapi
+              jws-algorithm: HS256
+        generator:
+          refresh-token:
+            enabled: true
+            secret: pleaseChangeThisSecretForANewOne-myapi2
+

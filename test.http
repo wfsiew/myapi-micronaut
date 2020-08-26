@@ -1,0 +1,21 @@
+@baseUrl = http://localhost:8080
+
+###
+
+# @name login
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+  "username": "rosalind.yee@nova-hub.com",
+  "password": "password"
+}
+
+###
+
+@token = {{login.response.body.access_token}}
+
+###
+
+GET {{baseUrl}}/secure/persons/data
+Authorization: Bearer {{token}}
